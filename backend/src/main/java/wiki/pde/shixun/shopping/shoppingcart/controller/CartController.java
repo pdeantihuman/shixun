@@ -20,16 +20,14 @@ import java.util.Collections;
 @RestController
 @RequestMapping("/cart")
 public class CartController {
-    final
+    private final
     CartService cartService;
-    final
+    private final
     UserService userService;
-    final
+    private final
     ProductService productService;
-    final
+    private final
     ProductInOrderService productInOrderService;
-    final
-    ProductInOrderRepository productInOrderRepository;
 
     public CartController(CartService cartService, UserService userService, ProductService productService,
                           ProductInOrderService productInOrderService,
@@ -38,7 +36,6 @@ public class CartController {
         this.userService = userService;
         this.productService = productService;
         this.productInOrderService = productInOrderService;
-        this.productInOrderRepository = productInOrderRepository;
     }
 
     @PostMapping("")

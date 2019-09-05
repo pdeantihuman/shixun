@@ -1,6 +1,5 @@
 package wiki.pde.shixun.shopping.shoppingcart.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
@@ -18,14 +17,10 @@ import java.util.Collection;
 @RestController
 @CrossOrigin
 public class OrderController {
-    final
-    OrderService orderService;
-    final
-    UserService userService;
+    private final OrderService orderService;
 
     public OrderController(OrderService orderService, UserService userService) {
         this.orderService = orderService;
-        this.userService = userService;
     }
 
     @GetMapping("/order")

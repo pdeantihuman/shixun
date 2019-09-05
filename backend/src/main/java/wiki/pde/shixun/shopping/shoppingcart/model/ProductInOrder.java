@@ -12,34 +12,64 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
-@NoArgsConstructor
 @Data
-public class ProductInOrder{
+@NoArgsConstructor
+public class ProductInOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JsonIgnore
     private Cart cart;
-    @ManyToMany(fetch = FetchType.LAZY)
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     @JsonIgnore
     private OrderMain orderMain;
+
+
     @NotEmpty
     private String productId;
+
+    /**
+     * 名字.
+     */
     @NotEmpty
     private String productName;
+
+    /**
+     * 描述.
+     */
     @NotNull
     private String productDescription;
+
+    /**
+     * 小图.
+     */
     private String productIcon;
+
+    /**
+     * 类目编号.
+     */
     @NotNull
     private Integer categoryType;
+
+    /**
+     * 单价.
+     */
     @NotNull
     private BigDecimal productPrice;
+
+    /**
+     * 库存.
+     */
     @Min(0)
     private Integer productStock;
+
     @Min(1)
     private Integer count;
+
 
     public ProductInOrder(ProductInfo productInfo, Integer quantity) {
         this.productId = productInfo.getProductId();

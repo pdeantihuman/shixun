@@ -1,6 +1,5 @@
 package wiki.pde.shixun.shopping.shoppingcart.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
@@ -27,10 +26,10 @@ public class CategoryController {
     /**
      * Show products in category
      *
-     * @param categoryType
-     * @param page
-     * @param size
-     * @return
+     * @param categoryType 分类
+     * @param page 当前页
+     * @param size 每页的长度
+     * @return 当前页的产品列表
      */
     @GetMapping("/category/{type}")
     public CategoryPage showOne(@PathVariable("type") Integer categoryType,

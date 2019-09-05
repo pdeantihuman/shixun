@@ -24,6 +24,7 @@ public class User implements Serializable {
 
     @NaturalId
     @NotEmpty
+    @Column(length = 40)
     private String email;
     @NotEmpty
     @Size(min = 3, message = "Length must be more than 3")

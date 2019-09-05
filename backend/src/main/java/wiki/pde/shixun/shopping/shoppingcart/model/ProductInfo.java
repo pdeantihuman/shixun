@@ -5,7 +5,6 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,6 +19,7 @@ import java.util.Date;
 @DynamicUpdate
 public class ProductInfo {
     @Id
+    @Column(length = 40)
     private String productId;
     @NotNull
     private String productName;
