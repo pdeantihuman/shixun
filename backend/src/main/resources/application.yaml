@@ -1,0 +1,12 @@
+server:
+  port: 7070
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/shopping
+    username: shopping
+    password: helloshopping

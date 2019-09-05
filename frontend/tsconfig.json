@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "sourceMap": true,
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  }
+}
