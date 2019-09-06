@@ -1,5 +1,7 @@
 server:
   port: 7070
+  servlet:
+    contextPath: /api
 spring:
   jpa:
     properties:
@@ -13,6 +15,9 @@ spring:
     url: jdbc:mysql://localhost:3306/shopping
     username: shopping
     password: helloshopping
+  queries:
+    users-query: select email, password, active from users where email=?
+    roles-query: select email, role from users where email=?
 logging:
   path: logs/shopping/
   level:
@@ -28,3 +33,5 @@ logging:
           core:
             JdbcTemplate: debug
             StatementCreatorUtils: trace
+jwtSecret: me.zhulin
+jwtExpiration: 86400

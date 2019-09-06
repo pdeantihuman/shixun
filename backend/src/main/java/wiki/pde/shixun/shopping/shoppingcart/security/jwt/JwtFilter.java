@@ -1,6 +1,5 @@
 package wiki.pde.shixun.shopping.shoppingcart.security.jwt;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,10 +17,13 @@ import java.util.ArrayList;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter {
-    @Autowired
-    private JwtProvider jwtProvider;
-    @Autowired
-    private UserService userService;
+    private final JwtProvider jwtProvider;
+    private final UserService userService;
+
+    public JwtFilter(JwtProvider jwtProvider, UserService userService) {
+        this.jwtProvider = jwtProvider;
+        this.userService = userService;
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
