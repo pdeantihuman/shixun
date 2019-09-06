@@ -2,11 +2,29 @@ server:
   port: 7070
 spring:
   jpa:
+    properties:
+      hibernate:
+        format_sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     generate-ddl: true
     show-sql: true
   datasource:
     url: jdbc:mysql://localhost:3306/shopping
     username: shopping
     password: helloshopping
+logging:
+  path: logs/shopping/
+  level:
+    wiki:
+      pde: debug
+    root: info
+    org:
+      apache:
+        catalina: error
+      springframework:
+        root: error
+        jdbc:
+          core:
+            JdbcTemplate: debug
+            StatementCreatorUtils: trace
