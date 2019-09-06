@@ -3,9 +3,7 @@ import {Injectable} from "@angular/core";
 import {UserService} from "../service/user.service";
 import {Observable} from "rxjs";
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
 
 

@@ -6,8 +6,8 @@ import {Role} from "../../enum/Role";
 
 @Component({
     selector: 'app-user-detail',
-    templateUrl: './user-detail.component.html',
-    styleUrls: ['./user-detail.component.css']
+    templateUrl: './detail.component.html',
+    styleUrls: ['./detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
 

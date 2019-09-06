@@ -1,14 +1,10 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
-import {Observable} from "rxjs";
-import {OrderService} from "../../service/order.service";
-import {Order} from "../../model/order";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {OrderService} from '../../service/order.service';
+import {Observable} from 'rxjs';
+import {Order} from '../../model/order';
 
-@Component({
-    selector: 'app-order-detail',
-    templateUrl: './order-detail.component.html',
-    styleUrls: ['./order-detail.component.css']
-})
+@Component({selector: 'app-order-detail', templateUrl: './detail.component.html', styleUrls: ['./detail.component.css']})
 export class OrderDetailComponent implements OnInit {
 
     constructor(private orderService: OrderService,

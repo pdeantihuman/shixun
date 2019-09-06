@@ -1,13 +1,9 @@
-import {Component, OnInit} from "@angular/core";
-import {UserService} from "../../service/user.service";
-import {Role} from "../../enum/Role";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../../service/user.service';
+import {Role} from '../../enum/Role';
+import {ActivatedRoute, Router} from '@angular/router';
 
-@Component({
-    selector: 'app-login',
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css']
-})
+@Component({selector: 'app-login', templateUrl: './login.component.html', styleUrls: ['./login.component.css']})
 export class LoginComponent implements OnInit {
 
     isInvalid: boolean;

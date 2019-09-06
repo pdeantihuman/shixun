@@ -1,18 +1,18 @@
-import {ProductInfo} from "../../model/ProductInfo";
-import {Component, OnDestroy, OnInit} from "@angular/core";
-import {UserService} from "../../service/user.service";
-import {ProductService} from "../../service/product.service";
-import {ActivatedRoute} from "@angular/router";
-import {JwtResponse} from "../../response/JwtResponse";
-import { Role } from "../../enum/Role";
-import {Subscription} from "rxjs";
-import {CategoryType} from "../../enum/CategoryType";
-import {ProductStatus} from "../../enum/ProductStatus";
+import {ProductInfo} from '../../model/ProductInfo';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {UserService} from '../../service/user.service';
+import {ProductService} from '../../service/product.service';
+import {ActivatedRoute} from '@angular/router';
+import {JwtResponse} from '../../response/JwtResponse';
+import {Role} from '../../enum/Role';
+import {Subscription} from 'rxjs';
+import {CategoryType} from '../../enum/CategoryType';
+import {ProductStatus} from '../../enum/ProductStatus';
 
 @Component({
     selector: 'app-product.list',
-    templateUrl: './product.list.component.html',
-    styleUrls: ['./product.list.component.css']
+    templateUrl: './product.component.html',
+    styleUrls: ['./product.component.css']
 })
 export class ProductListComponent implements OnInit, OnDestroy {
 

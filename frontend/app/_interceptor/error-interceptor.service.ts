@@ -5,10 +5,7 @@ import {catchError} from "rxjs/operators";
 import {UserService} from "../service/user.service";
 import {Router} from "@angular/router";
 
-@Injectable({
-    providedIn: 'root'
-})
-
+@Injectable({providedIn: 'root'})
 export class ErrorInterceptor implements HttpInterceptor {
     constructor(private userService: UserService, private router: Router) {
 

@@ -3,10 +3,7 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/com
 import {Observable} from "rxjs";
 import {UserService} from "../service/user.service";
 
-@Injectable({
-    providedIn: 'root'
-})
-
+@Injectable({providedIn: 'root'})
 export class JwtInterceptor implements HttpInterceptor{
     constructor(private userService: UserService) {
 

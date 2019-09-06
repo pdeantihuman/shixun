@@ -1,18 +1,14 @@
-import {Role} from "../../enum/Role";
-import {ProductInOrder} from "../../model/ProductInOrder";
-import {debounceTime, switchMap} from "rxjs/operators";
-import {Subject, Subscription} from "rxjs";
-import {JwtResponse} from "../../response/JwtResponse";
-import {Router} from "@angular/router";
-import {UserService} from "../../service/user.service";
-import {AfterContentChecked, Component, OnDestroy, OnInit} from "@angular/core";
-import {CartService} from "../../service/cart.service";
+import {Role} from '../../enum/Role';
+import {ProductInOrder} from '../../model/ProductInOrder';
+import {debounceTime, switchMap} from 'rxjs/operators';
+import {Subject, Subscription} from 'rxjs';
+import {JwtResponse} from '../../response/JwtResponse';
+import {Router} from '@angular/router';
+import {UserService} from '../../service/user.service';
+import {AfterContentChecked, Component, OnDestroy, OnInit} from '@angular/core';
+import {CartService} from '../../service/cart.service';
 
-@Component({
-    selector: 'app-cart',
-    templateUrl: './cart.component.html',
-    styleUrls: ['./cart.component.css']
-})
+@Component({selector: 'app-cart', templateUrl: './cart.component.html', styleUrls: ['./cart.component.css']})
 export class CartComponent implements OnInit, OnDestroy, AfterContentChecked {
 
     constructor(private cartService: CartService,
@@ -55,7 +51,9 @@ export class CartComponent implements OnInit, OnDestroy, AfterContentChecked {
             // switch to new search observable each time the term changes
             switchMap((productInOrder: ProductInOrder) => this.cartService.update(productInOrder))
         ).subscribe(prod => {
-                if (prod) { throw new Error(); }
+                if (prod) {
+                    throw new Error();
+                }
             },
             _ => console.log('Update Item Failed'));
     }
@@ -75,18 +73,24 @@ export class CartComponent implements OnInit, OnDestroy, AfterContentChecked {
     addOne(productInOrder) {
         productInOrder.count++;
         CartComponent.validateCount(productInOrder);
-        if (this.currentUser) { this.updateTerms.next(productInOrder); }
+        if (this.currentUser) {
+            this.updateTerms.next(productInOrder);
+        }
     }
 
     minusOne(productInOrder) {
         productInOrder.count--;
         CartComponent.validateCount(productInOrder);
-        if (this.currentUser) { this.updateTerms.next(productInOrder); }
+        if (this.currentUser) {
+            this.updateTerms.next(productInOrder);
+        }
     }
 
     onChange(productInOrder) {
         CartComponent.validateCount(productInOrder);
-        if (this.currentUser) { this.updateTerms.next(productInOrder); }
+        if (this.currentUser) {
+            this.updateTerms.next(productInOrder);
+        }
     }
 
 

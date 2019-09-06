@@ -3,11 +3,7 @@ import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../service/product.service";
 
-@Component({
-    selector: 'app-card',
-    templateUrl: './card.component.html',
-    styleUrls: ['./card.component.css']
-})
+@Component({selector: 'app-card', templateUrl: './card.component.html', styleUrls: ['./card.component.css']})
 export class CardComponent implements OnInit, OnDestroy{
     title: string;
     page: any;
