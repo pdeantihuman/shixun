@@ -8,6 +8,7 @@ import {JwtResponse} from "../../response/JwtResponse";
 import {Component, OnDestroy, OnInit} from "@angular/core";
 import {OrderStatus} from "../../enum/OrderStatus";
 import {Role} from "../../enum/Role";
+import {ProductInOrder} from '../../model/ProductInOrder';
 
 @Component({
     selector: 'app-order',
@@ -16,7 +17,9 @@ import {Role} from "../../enum/Role";
 })
 export class OrderComponent implements OnInit, OnDestroy {
 
-    page: any;
+    page: {
+        content: Order[]
+    };
     OrderStatus = OrderStatus;
     currentUser: JwtResponse;
     Role = Role;

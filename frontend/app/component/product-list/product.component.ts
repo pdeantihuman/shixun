@@ -9,11 +9,7 @@ import {Subscription} from 'rxjs';
 import {CategoryType} from '../../enum/CategoryType';
 import {ProductStatus} from '../../enum/ProductStatus';
 
-@Component({
-    selector: 'app-product.list',
-    templateUrl: './product.component.html',
-    styleUrls: ['./product.component.css']
-})
+@Component({selector: 'app-product.list', templateUrl: './product.component.html', styleUrls: ['./product.component.css']})
 export class ProductListComponent implements OnInit, OnDestroy {
 
     constructor(private userService: UserService,
@@ -23,7 +19,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
     Role = Role;
     currentUser: JwtResponse;
-    page: any;
+    page: {
+        content: ProductInfo[]
+    };
     CategoryType = CategoryType;
     ProductStatus = ProductStatus;
     private querySub: Subscription;

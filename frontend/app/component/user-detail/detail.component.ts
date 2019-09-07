@@ -4,11 +4,7 @@ import {Router} from "@angular/router";
 import {User} from "../../model/user";
 import {Role} from "../../enum/Role";
 
-@Component({
-    selector: 'app-user-detail',
-    templateUrl: './detail.component.html',
-    styleUrls: ['./detail.component.css']
-})
+@Component({selector: 'app-user-detail', templateUrl: './detail.component.html', styleUrls: ['./detail.component.css']})
 export class UserDetailComponent implements OnInit {
 
 

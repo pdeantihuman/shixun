@@ -7,8 +7,8 @@
             <input [readOnly]="isEdit" [disabled]="isEdit" [(ngModel)]="product.productId" type="text"
                    class="form-control form-control-lg" #productIdInput
                    id="productId" name="productId" required #productId="ngModel">
-            <div *ngIf="productIdInput.invalid && (productIdInput.dirty ||productIdInput.touched)">
-                <div *ngIf="productIdInput.errors.required">
+            <div *ngIf="productId.invalid && (productId.dirty ||productId.touched)">
+                <div *ngIf="productId.errors.required">
                     Name is required.
                 </div>
             </div>

@@ -2,11 +2,14 @@ import {Component, OnDestroy, OnInit} from "@angular/core";
 import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../service/product.service";
+import {ProductInfo} from '../../model/ProductInfo';
 
 @Component({selector: 'app-card', templateUrl: './card.component.html', styleUrls: ['./card.component.css']})
 export class CardComponent implements OnInit, OnDestroy{
     title: string;
-    page: any;
+    page: {
+        content: ProductInfo[]
+    };
     private paramSub: Subscription;
     private querySub: Subscription;
     constructor(private productService: ProductService, private route: ActivatedRoute){
