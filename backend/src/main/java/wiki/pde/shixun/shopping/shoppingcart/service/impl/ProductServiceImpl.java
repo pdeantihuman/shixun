@@ -69,7 +69,7 @@ public class ProductServiceImpl implements ProductService {
         }
 
         int update = productInfo.getProductStock() - amount;
-        if(update <= 0) {
+        if(update < 0) {
             throw new MyException(ResultEnum.PRODUCT_NOT_ENOUGH );
         }
 

@@ -9,13 +9,14 @@ import wiki.pde.shixun.shopping.shoppingcart.response.CategoryPage;
 import wiki.pde.shixun.shopping.shoppingcart.service.CategoryService;
 import wiki.pde.shixun.shopping.shoppingcart.service.ProductService;
 
+/**
+ * @author john
+ */
 @RestController
 @CrossOrigin
 public class CategoryController {
-    private final
-    CategoryService categoryService;
-    private final
-    ProductService productService;
+    private final CategoryService categoryService;
+    private final ProductService productService;
 
     public CategoryController(CategoryService categoryService, ProductService productService) {
         this.categoryService = categoryService;
@@ -40,6 +41,9 @@ public class CategoryController {
         PageRequest request = PageRequest.of(page - 1, size);
         Page<ProductInfo> productInCategory = productService.findAllInCategory(categoryType, request);
         var tmp = new CategoryPage("", productInCategory);
+        if (cat == null) {
+            return tmp;
+        }
         tmp.setCategory(cat.getCategoryName());
         return tmp;
     }
