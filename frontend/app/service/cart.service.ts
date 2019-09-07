@@ -18,9 +18,10 @@ export class CartService {
 
     private cartUrl = `${apiUrl}/cart`;
 
+    /**
+     * 存储购物车信息
+     */
     localMap = {};
-
-
     private itemsSubject: BehaviorSubject<Item[]>;
     private totalSubject: BehaviorSubject<number>;
     public items: Observable<Item[]>;
@@ -41,6 +42,9 @@ export class CartService {
 
     }
 
+    /**
+     * 从 Cookie 中提取购物车列表
+     */
     private getLocalCart(): ProductInOrder[] {
         if (this.cookieService.check('cart')) {
             this.localMap = JSON.parse(this.cookieService.get('cart'));
@@ -51,8 +55,10 @@ export class CartService {
         }
     }
 
+    // 从服务端下载购物车
     getCart(): Observable<ProductInOrder[]> {
         const localCart = this.getLocalCart();
+        // 如果已登陆，从服务器上下载 cart
         if (this.currentUser) {
             if (localCart.length > 0) {
                 return this.http.post<Cart>(this.cartUrl, localCart).pipe<any, any, any>(
@@ -69,11 +75,18 @@ export class CartService {
                 );
             }
         } else {
+            // 返回 of(localCart)
             return of(localCart);
         }
     }
 
-    addItem(productInOrder): Observable<boolean> {
+    /**
+     * 添加product到购物车
+     * @param productInOrder
+     */
+    addItem(productInOrder: ProductInOrder): Observable<boolean> {
+        // 若未登陆，写入 cookie 本地存储
+        // 若已登陆，上传到服务端
         if (!this.currentUser) {
             if (this.cookieService.check('cart')) {
                 this.localMap = JSON.parse(this.cookieService.get('cart'));
@@ -94,7 +107,11 @@ export class CartService {
         }
     }
 
-    update(productInOrder): Observable<ProductInOrder> {
+    /**
+     * 更新一个产品在购物车中的数量到服务端
+     * @param productInOrder
+     */
+    update(productInOrder: ProductInOrder): Observable<ProductInOrder> {
 
         if (this.currentUser) {
             const url = `${this.cartUrl}/${productInOrder.productId}`;
@@ -103,7 +120,11 @@ export class CartService {
     }
 
 
-    remove(productInOrder) {
+    /**
+     * 将一个产品从购物车中移除
+     * @param productInOrder
+     */
+    remove(productInOrder: ProductInOrder) {
         if (!this.currentUser) {
             delete this.localMap[productInOrder.productId];
             return of(null);
@@ -114,11 +135,17 @@ export class CartService {
     }
 
 
+    /**
+     * 开启结算
+     */
     checkout(): Observable<any> {
         const url = `${this.cartUrl}/checkout`;
         return this.http.post(url, null).pipe();
     }
 
+    /**
+     * 保存当前购物车到本地 cookie
+     */
     storeLocalCart() {
         this.cookieService.set('cart', JSON.stringify(this.localMap));
     }

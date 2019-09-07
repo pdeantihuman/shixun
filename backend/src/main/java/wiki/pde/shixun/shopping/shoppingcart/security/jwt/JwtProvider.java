@@ -10,6 +10,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+/**
+ * @author john
+ * JWT Provider
+ */
 @Slf4j
 @Component
 public class JwtProvider {
@@ -29,6 +33,11 @@ public class JwtProvider {
                 .compact();
     }
 
+    /**
+     * 验证 jwt 签名
+     * @param token 从 http 请求中提取出的 jwt token
+     * @return true-签名为真, false-签名为假
+     */
     public boolean validate(String token) {
         try {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token);
@@ -39,6 +48,11 @@ public class JwtProvider {
         return false;
     }
 
+    /**
+     * 
+     * @param token jwt token
+     * @return 返回 jwt payload 中包含的用户 id
+     */
     public String getUserAccount(String token) {
         return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token)
                 .getBody().getSubject();

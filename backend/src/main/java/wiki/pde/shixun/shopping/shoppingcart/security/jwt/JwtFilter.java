@@ -15,6 +15,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * @author john
+ * JWT authentication filter
+ * 实现 OncePerRequestFilter
+ */
 @Component
 public class JwtFilter extends OncePerRequestFilter {
     private final JwtProvider jwtProvider;
@@ -25,6 +30,15 @@ public class JwtFilter extends OncePerRequestFilter {
         this.userService = userService;
     }
 
+
+    /**
+     * 实现 jwt authentication
+     * @param httpServletRequest 请求体
+     * @param httpServletResponse 响应体
+     * @param filterChain filter chain
+     * @throws ServletException doFilter 可能抛出 Servlet 异常
+     * @throws IOException doFilter 可能抛出 IO 异常
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         String jwt = getToken(httpServletRequest);
@@ -48,6 +62,11 @@ public class JwtFilter extends OncePerRequestFilter {
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
 
+    /**
+     * 从 HTTP 请求中提取 JWT
+     * @param request 请求
+     * @return 从请求中提取出的 JWT Token
+     */
     private String getToken(HttpServletRequest request) {
         String authHeader = request.getHeader("Authorization");
 

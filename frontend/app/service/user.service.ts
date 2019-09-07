@@ -7,10 +7,10 @@ import {catchError, tap} from "rxjs/operators";
 import {JwtResponse} from "../response/JwtResponse";
 import {User} from "../model/user";
 
-@Injectable({
-    providedIn: 'root'
-})
-
+/**
+ * @author john
+ */
+@Injectable({providedIn: 'root'})
 export class UserService {
     private currentUserSubject: BehaviorSubject<JwtResponse>;
     public currentUser: Observable<JwtResponse>;
