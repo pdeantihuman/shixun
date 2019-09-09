@@ -8,13 +8,8 @@ import {JwtResponse} from "../../response/JwtResponse";
 import {Component, OnDestroy, OnInit} from "@angular/core";
 import {OrderStatus} from "../../enum/OrderStatus";
 import {Role} from "../../enum/Role";
-import {ProductInOrder} from '../../model/ProductInOrder';
 
-@Component({
-    selector: 'app-order',
-    templateUrl: './order.component.html',
-    styleUrls: ['./order.component.css']
-})
+@Component({selector: 'app-order', templateUrl: './order.component.html', styleUrls: ['./order.component.css']})
 export class OrderComponent implements OnInit, OnDestroy {
 
     page: {

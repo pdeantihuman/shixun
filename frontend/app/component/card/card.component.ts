@@ -4,7 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../service/product.service";
 import {ProductInfo} from '../../model/ProductInfo';
 
-@Component({selector: 'app-card', templateUrl: './card.component.html', styleUrls: ['./card.component.css']})
+@Component({selector: 'app-card', templateUrl: './card.component.html', styleUrls: ['./card.component.scss']})
 export class CardComponent implements OnInit, OnDestroy{
     title: string;
     page: {
@@ -18,7 +18,7 @@ export class CardComponent implements OnInit, OnDestroy{
     ngOnInit(): void {
         this.querySub = this.route.queryParams.subscribe(() => {
             this.update();
-        })
+        });
         this.paramSub = this.route.params.subscribe(() => {
             this.update();
         })

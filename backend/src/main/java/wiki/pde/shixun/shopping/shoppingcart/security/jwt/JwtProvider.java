@@ -49,7 +49,7 @@ public class JwtProvider {
     }
 
     /**
-     * 
+     *
      * @param token jwt token
      * @return 返回 jwt payload 中包含的用户 id
      */
