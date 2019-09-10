@@ -2,7 +2,7 @@ package wiki.pde.shixun.shopping.shoppingcart.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import wiki.pde.shixun.shopping.shoppingcart.form.ItemForm;
+import wiki.pde.shixun.shopping.shoppingcart.request.ItemForm;
 import wiki.pde.shixun.shopping.shoppingcart.model.Cart;
 import wiki.pde.shixun.shopping.shoppingcart.model.ProductInOrder;
 import wiki.pde.shixun.shopping.shoppingcart.model.User;

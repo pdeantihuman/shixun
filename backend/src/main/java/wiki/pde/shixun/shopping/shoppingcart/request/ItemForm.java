@@ -1,4 +1,4 @@
-package wiki.pde.shixun.shopping.shoppingcart.form;
+package wiki.pde.shixun.shopping.shoppingcart.request;
 
 import lombok.Data;
 

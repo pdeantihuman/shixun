@@ -33,5 +33,6 @@ logging:
           core:
             JdbcTemplate: debug
             StatementCreatorUtils: trace
-jwtSecret: me.zhulin
-jwtExpiration: 86400
+jwt:
+  jwtSecret: wiki.pde
+  jwtExpiration: 86400

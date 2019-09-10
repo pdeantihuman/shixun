@@ -36,7 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${spring.queries.roles-query}")
     private String rolesQuery;
 
-    public SecurityConfig(JwtFilter jwtFilter, JwtEntryPoint accessDenyHandler, PasswordEncoder passwordEncoder, DataSource dataSource) {
+    public SecurityConfig(JwtFilter jwtFilter,
+                          JwtEntryPoint accessDenyHandler,
+                          PasswordEncoder passwordEncoder,
+                          DataSource dataSource) {
         this.jwtFilter = jwtFilter;
         this.accessDenyHandler = accessDenyHandler;
         this.passwordEncoder = passwordEncoder;
@@ -44,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception{
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .jdbcAuthentication()
                 .usersByUsernameQuery(usersQuery)
@@ -60,10 +63,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception{
+    protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
-
                 .antMatchers("/profile/**").authenticated()
                 .antMatchers("/cart/**").access("hasAnyRole('CUSTOMER')")
                 .antMatchers("/order/finish/**").access("hasAnyRole('EMPLOYEE', 'MANAGER')")
@@ -73,13 +75,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/seller/**/delete").access("hasAnyRole( 'MANAGER')")
                 .antMatchers("/seller/**").access("hasAnyRole('EMPLOYEE', 'MANAGER')")
                 .anyRequest().permitAll()
-
+                // 异常处理
                 .and()
                 .exceptionHandling().authenticationEntryPoint(accessDenyHandler)
+                // session 策略修改为 stateless
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }
-
 }

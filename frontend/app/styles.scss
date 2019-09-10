@@ -1,4 +1,4 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap/scss/bootstrap";
 
 .ng-valid[required], .ng-valid.required  {
     border-left: 5px solid #42A948; /* green */
@@ -11,6 +11,37 @@
 .navbar-laravel {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    @include media-breakpoint-down(md) {
+        padding-right: .5rem;
+        padding-left: .5rem;
+
+        .navbar-nav-scroll {
+            max-width: 100%;
+            height: 2.5rem;
+            margin-top: .25rem;
+            overflow: hidden;
+
+            .navbar-nav {
+                padding-bottom: 2rem;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        @supports (position: sticky) {
+            position: sticky;
+            top: 0;
+            z-index: 1071; // over everything in bootstrap
+        }
+    }
+}
+
+.sign-in-title {
+    font-family: monospace;
+    margin-top: 2rem!important;
 }
 
 // Body

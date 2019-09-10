@@ -3,7 +3,7 @@ package wiki.pde.shixun.shopping.shoppingcart.security.jwt;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -16,11 +16,16 @@ import java.util.Date;
  */
 @Slf4j
 @Component
+@ConfigurationProperties(prefix = "jwt")
 public class JwtProvider {
 
-    @Value("${jwtSecret}")
+    /**
+     * jwt secret
+     */
     private String jwtSecret;
-    @Value("${jwtExpiration}")
+    /**
+     * jwt token 默认过期时间
+     */
     private int jwtExpiration;
 
     public String generate(Authentication authentication) {
@@ -49,7 +54,7 @@ public class JwtProvider {
     }
 
     /**
-     *
+     * 根据 token 计算出用户 id 即
      * @param token jwt token
      * @return 返回 jwt payload 中包含的用户 id
      */

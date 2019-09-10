@@ -1,6 +1,4 @@
-<h1 align="center" class="display-4 mb-5 sign-in-title">Sign In</h1>
-
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="alert alert-danger" *ngIf="isInvalid">
@@ -12,10 +10,9 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 col-lg-6">
             <div class="card">
                 <div class="card-header">Sign In</div>
-
                 <div class="card-body">
                     <form #form='ngForm' (ngSubmit)="onSubmit()">
 
@@ -63,26 +60,26 @@
                             </div>
                         </div>
                     </form>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <strong>Sample Users</strong>
-                            <table style="width: 100%;" id="sampleLoginTable">
-                                <tr>
-                                    <td><a
-                                            (click)="fillLoginFields('customer1@email.com','123')"
-                                            href="javascript:void(0)">customer1</a></td>
-                                    <td><a
-                                            (click)="fillLoginFields('employee1@email.com','123')"
-                                            href="javascript:void(0)">employee1</a></td>
-                                    <td><a
-                                            (click)="fillLoginFields('manager1@email.com','123')"
-                                            href="javascript:void(0)">manager1</a></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-2 col-lg-5">
+            <strong>Sample Users</strong>
+            <table style="width: 100%;" id="sampleLoginTable">
+                <tr>
+                    <td><a
+                            (click)="fillLoginFields('customer1@email.com','123')"
+                            href="javascript:void(0)">customer1</a></td>
+                    <td><a
+                            (click)="fillLoginFields('employee1@email.com','123')"
+                            href="javascript:void(0)">employee1</a></td>
+                    <td><a
+                            (click)="fillLoginFields('manager1@email.com','123')"
+                            href="javascript:void(0)">manager1</a></td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
