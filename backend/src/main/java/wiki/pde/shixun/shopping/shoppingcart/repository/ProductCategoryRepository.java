@@ -12,4 +12,11 @@ public interface ProductCategoryRepository extends JpaRepository<ProductCategory
     List<ProductCategory> findAllByOrderByCategoryType();
     // One category
     ProductCategory findByCategoryType(Integer categoryType);
+
+    /**
+     * 根绝商品分类类型获取所有的商品分类
+     * @param categoryType 商品分类类型
+     * @return 商品分类
+     */
+    List<ProductCategory> findAllByCategoryType(Integer categoryType);
 }

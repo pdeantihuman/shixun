@@ -20,11 +20,12 @@ import java.util.Date;
 public class JwtProvider {
 
     /**
-     * jwt secret
+     * 在配置文件中配置 jwt secret
      */
     private String jwtSecret;
+
     /**
-     * jwt token 默认过期时间
+     * 在配置文件中配置 jwt token 默认过期时间
      */
     private int jwtExpiration;
 

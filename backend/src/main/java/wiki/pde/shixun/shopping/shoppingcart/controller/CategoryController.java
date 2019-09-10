@@ -8,6 +8,7 @@ import wiki.pde.shixun.shopping.shoppingcart.model.ProductInfo;
 import wiki.pde.shixun.shopping.shoppingcart.response.CategoryPage;
 import wiki.pde.shixun.shopping.shoppingcart.service.CategoryService;
 import wiki.pde.shixun.shopping.shoppingcart.service.ProductService;
+import java.util.List;
 
 /**
  * @author john
@@ -36,15 +37,14 @@ public class CategoryController {
     public CategoryPage showOne(@PathVariable("type") Integer categoryType,
                                 @RequestParam(value = "page", defaultValue = "1") Integer page,
                                 @RequestParam(value = "size", defaultValue = "3") Integer size) {
-
-        ProductCategory cat = categoryService.findByCategoryType(categoryType);
+        List<ProductCategory> cat = categoryService.findAllByCategoryType(categoryType);
         PageRequest request = PageRequest.of(page - 1, size);
         Page<ProductInfo> productInCategory = productService.findAllInCategory(categoryType, request);
         var tmp = new CategoryPage("", productInCategory);
-        if (cat == null) {
+        if (cat.isEmpty()) {
             return tmp;
         }
-        tmp.setCategory(cat.getCategoryName());
+        tmp.setCategory(cat.get(0).getCategoryName());
         return tmp;
     }
 }
