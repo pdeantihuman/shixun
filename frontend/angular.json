@@ -54,13 +54,22 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "zh": {
+              "aot": true,
+              "i18nFile": "app/locales/messages.zh-Hans.xlf",
+              "i18nLocale": "zh-Hans",
+              "i18nFormat": "xlf",
+              "sourceMap": true,
+              "extractCss": true,
+              "outputHashing": "all"
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "shop:build"
+            "browserTarget": "shop:build:zh"
           },
           "configurations": {
             "production": {
@@ -71,7 +80,11 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "shop:build"
+            "outputPath": "app/locales",
+            "outFile": "messages.zh-Hans.xlf",
+            "i18nLocale": "en",
+            "i18nFormat": "xlf",
+            "browserTarget": "shop:build:zh"
           }
         },
         "test": {
@@ -82,7 +95,7 @@
             "tsConfig": "app/tsconfig.spec.json",
             "karmaConfig": "app/karma.conf.js",
             "styles": [
-              "app/styles.css"
+              "app/styles.scss"
             ],
             "scripts": [],
             "assets": [
