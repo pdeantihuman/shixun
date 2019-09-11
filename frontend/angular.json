@@ -61,17 +61,22 @@
               "i18nLocale": "zh-Hans",
               "i18nFormat": "xlf",
               "sourceMap": true,
-              "extractCss": true,
-              "outputHashing": "all"
+              "extractCss": true
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "shop:build:zh"
+            "browserTarget": "shop:build:zh",
+            "hmr": true,
+            "hmrWarning": true,
+            "watch": true
           },
           "configurations": {
+            "develop": {
+              "browserTarget": "shop:build:zh"
+            },
             "production": {
               "browserTarget": "shop:build:production"
             }

@@ -12,6 +12,30 @@
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="11cf81bea9b5ec74700ae6b0bd161b2a4a240577" datatype="html">
+        <source>
+                        <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>
+                        Sign In
+                    </source>
+                    <target>
+                    登陆
+                    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/parts/navigation/navigation.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="00698073eea9e1d22bfba8c29ba74d81a9d172dc" datatype="html">
+        <source>
+                        <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>
+                        Sign Up
+                    </source>
+                    <target>登出</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/parts/navigation/navigation.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>
