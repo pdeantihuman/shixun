@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel ui main borderless menu top stackable topnav navbar-nav navbar-nav-scroll">
     <div class="container">
-        <a class="navbar-brand" [routerLink]="root">
-            <img src="/assets/2080201.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-            E-Shop
+        <a class="navbar-brand huaq-brand" [routerLink]="root">
+            <img src="/assets/flower.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+            花Q视频站
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,35 +14,24 @@
 
                 <a class="nav-item nav-link "
                    routerLink="/category/0">
-                    Books
+                    动漫
                 </a>
                 <a class="nav-item nav-link"
                    routerLink="/category/1" i18n>
-                    Food
+                    电视剧
                 </a>
                 <a class="nav-item nav-link "
                    routerLink="/category/2">
-                    Clothes
-                </a>
-                <a class="nav-item nav-link"
-                   routerLink="/category/3">
-                    Drink
+                    电影
                 </a>
 
             </div>
 
             <div class="navbar-nav ml-auto">
-                <a *ngIf="!currentUser || currentUser.role == Role.Customer"
-                   class="nav-item nav-link " routerLink="/cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    Cart
-                </a>
+
 
                 <ng-container *ngIf="currentUser; else noUser">
-                    <a class="nav-item nav-link " routerLink="/order">
-                        <i class="fas fa-list-ul"></i>
-                        Orders
-                    </a>
+
                     <a class="nav-item nav-link " routerLink="/profile">
                         {{name}}
                     </a>
@@ -54,11 +43,11 @@
                 <ng-template #noUser>
                     <a class="nav-item nav-link " routerLink="/login" i18n>
                         <i class="fas fa-sign-in-alt"></i>
-                        Sign In
+                       登陆
                     </a>
                     <a class="nav-item nav-link " routerLink="/register" i18n>
                         <i class="fas fa-user-plus"></i>
-                        Sign Up
+                       注册
                     </a>
                 </ng-template>
             </div>

@@ -2,40 +2,40 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="alert alert-danger" *ngIf="isInvalid">
-                Invalid username and password.
+                无效的用户名或密码.
             </div>
             <div class="alert alert-info" *ngIf="isLogout">
-                You have been logged out.
+                您已登出！
             </div>
         </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
             <div class="card">
-                <div class="card-header">Sign In</div>
+                <div class="card-header">登陆</div>
                 <div class="card-body">
                     <form #form='ngForm' (ngSubmit)="onSubmit()">
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">Email address</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">用户名</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control form-control-lg" name="email" placeholder="Enter email" [(ngModel)]="model.username" required autocomplete="email" autofocus #email="ngModel">
+                                <input id="email" type="text" class="form-control form-control-lg" name="email" placeholder="请输入用户名" [(ngModel)]="model.username" required autocomplete="email" autofocus #email="ngModel">
 
                                 <span class="invalid-feedback" role="alert" [hidden]="email.valid || email.pristine">
-                                        <strong>Email is required</strong>
+                                        <strong>邮箱必填！</strong>
                                     </span>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">密码</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control form-control-lg" name="password" required autocomplete="password" [(ngModel)]="model.password" #password='ngModel'>
+                                <input id="password" type="password" class="form-control form-control-lg" name="password" placeholder="请输入密码" required autocomplete="password" [(ngModel)]="model.password" #password='ngModel'>
 
                                 <span class="invalid-feedback" role="alert" [hidden]="password.valid || password.pristine">
-                                        <strong>Email is required</strong>
+                                        <strong>邮箱必填！</strong>
                                     </span>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember-me" id="remember_me" [(ngModel)]="model.remembered">
 
                                     <label class="form-check-label" for="remember_me">
-                                        Remember me
+                                        记住我
                                     </label>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-12">
                                 <button [disabled]="!form.form.valid" type="submit" class="btn btn-primary btn-block">
-                                    Sign In
+                                    登陆
                                 </button>
                             </div>
                         </div>
@@ -64,22 +64,5 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-6 mt-2 col-lg-5">
-            <strong>Sample Users</strong>
-            <table style="width: 100%;" id="sampleLoginTable">
-                <tr>
-                    <td><a
-                            (click)="fillLoginFields('customer1@email.com','123')"
-                            href="javascript:void(0)">customer1</a></td>
-                    <td><a
-                            (click)="fillLoginFields('employee1@email.com','123')"
-                            href="javascript:void(0)">employee1</a></td>
-                    <td><a
-                            (click)="fillLoginFields('manager1@email.com','123')"
-                            href="javascript:void(0)">manager1</a></td>
-                </tr>
-            </table>
-        </div>
-    </div>
+
 </div>
