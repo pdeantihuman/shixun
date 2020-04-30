@@ -22,7 +22,7 @@
     "bootstrap": "^4.3.1",
     "fsevents": "^1.2.9",
     "html5-boilerplate": "0.0.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-cookie-service": "^2.2.0",
     "rxjs": "^6.5.3",
     "zone.js": "^0.10.2"
