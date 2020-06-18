@@ -16,7 +16,7 @@
     "@angular/platform-browser": "^8.2.5",
     "@angular/platform-browser-dynamic": "^8.2.5",
     "@angular/router": "^8.2.5",
-    "angular": "^1.7.5",
+    "angular": "^1.8.0",
     "angular-loader": "^1.7.5",
     "angular-route": "^1.7.5",
     "bootstrap": "^4.3.1",
